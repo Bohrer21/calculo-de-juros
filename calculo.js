@@ -22,7 +22,7 @@ function calculoJuros() {
     var boleto = Number(valorBoleto.value)
     const diffInDays = calculateDateDiff()
 
-    var juros = (((boleto * 0.1) / 30) * diffInDays)
+    var juros = (((boleto * 0.01) / 30) * diffInDays)
 
     res.innerHTML = juros
 }
