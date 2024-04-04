@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculo de Juros e multa</title>
+    <style>
+        body{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <form action="calculo.js" method="post">
+        <div class="forms">
+            <label for="title">Boleto</label>
+            <input type="text" id="boleto" placeholder="Valor do Boleto">
+        </div>
+        
+        <div class="forms">
+            <label for="date">Data do primeiro vencimento</label>
+            <input type="date" id="start">
+        </div>
+
+        <div class="forms">
+            <label for="date">Data do último vencimento</label>
+            <input type="date" id="end">
+        </div>
+                
+        <input type="submit">
+    </form>
+
+    <small>O cálculo é feito com juros de 1% ao mês e multa de no máximo 10%</small>
+
+    <footer>Calculadora de Juros e Multa &copy; 2024</footer>
+</body>
+</html>
