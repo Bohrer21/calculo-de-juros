@@ -27,14 +27,37 @@
             <label for="end">Data do último vencimento</label>
             <input type="date" id="end">
         </div>
+        
+        <h3>Selecione a porcentagem da multa</h3>
+        
+        <div class="forms">
+            <input type="radio" id="porcentagem1" name="porcentagem" value="0.02">
+            <label for="porcentagem1">2%</label>
 
+            <input type="radio" id="porcentagem2" name="porcentagem" value="0.04">
+            <label for="porcentagem2">4%</label>
+
+            <input type="radio" id="porcentagem3" name="porcentagem" value="0.06">
+            <label for="porcentagem3">6%</label>
+
+            <input type="radio" id="porcentagem4" name="porcentagem" value="0.08">
+            <label for="porcentagem4">8%</label>
+
+            <input type="radio" id="porcentagem5" name="porcentagem" value="0.1">
+            <label for="porcentagem5">10%</label>
+        </div>
+        
         <script src="calculo.js"></script>
     </form>
     
     <button onclick="calculoJuros(), calculoMulta()">clique</button>
     
     <div id="res">
-        Resultado
+        Juros
+    </div>
+    
+    <div id="res2">
+        Multa
     </div>
     
     <small>O cálculo é feito com juros de 1% ao mês e multa de no máximo 10%</small>
