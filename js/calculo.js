@@ -23,7 +23,11 @@ function calculoJuros() {
 
     var juros = (((boleto * 0.01) / 30) * diffInDays)
 
-    res.innerHTML = juros
+    var formatJuros = juros.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
+
+    view1.innerHTML = formatJuros
+
+    return juros
 }
 
 function calculoMulta() {
@@ -32,5 +36,21 @@ function calculoMulta() {
 
     var multa = boleto * porcentMulta
 
-    res2.innerHTML = multa
+    var formatMulta = multa.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
+
+    view2.innerHTML = formatMulta
+
+    return multa
+}
+
+function total(){
+    var boleto = Number(valorBoleto.value)
+    const juros = calculoJuros()
+    const multa = calculoMulta()
+
+    var total = (juros + (multa + boleto))
+
+    var formatTotal = total.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
+
+    view3.innerHTML = formatTotal
 }

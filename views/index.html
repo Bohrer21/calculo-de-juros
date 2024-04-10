@@ -51,26 +51,26 @@
                 </label>
             </div>
         
-            <script src="calculo.js"></script>
+            <script src="/js/calculo.js"></script>
         </form>
         
-        <button onclick="calculoJuros(), calculoMulta()">clique</button>
+        <button onclick="calculoJuros(), calculoMulta(), total()">clique</button>
         
         <div class="tabela">
             <table>
                 <tr>
                     <th>Valor do Juros:</th>
-                    <td><span>&nbsp;</span></td>
+                    <td id="view1"><span>&nbsp;</span></td>
                 </tr>
                 
                 <tr>
                     <th>Valor da Multa:</th>
-                    <td><span>&nbsp;</span></td>
+                    <td id="view2"><span>&nbsp;</span></td>
                 </tr>
                 
                 <tr>
-                    <th>Total</th>
-                    <td><span>&nbsp;</span></td>
+                    <th>Total:</th>
+                    <td id="view3"><span>&nbsp;</span></td>
                 </tr>
             </table>
         </div>
