@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Calculo de Juros e multa</title>
+
+</head>
+<body>
+    <main>
+        <h1>Cálculo de Juros e Multa</h1>
+        <form>
+            <div class="formulario">
+                <label for="boleto"><strong>Boleto</strong></label>
+                <input type="number" id="boleto" placeholder="Valor do Boleto">
+            </div>
+        
+            <div class="forms" id="data">
+                <label for="start"><strong>Data do primeiro <br> vencimento</strong></label>
+                <br>
+                <input type="date" id="start">
+            </div>
+            <div class="forms" id="data">
+                <label for="end"><strong>Data do último <br> vencimento</strong></label>
+                <br>
+                <input type="date" id="end">
+            </div>
+        
+            <h3>Selecione a porcentagem da multa</h3>
+        
+            <div class="forms">
+                <label for="porcentagem1">
+                    <input type="radio" id="porcentagem1" name="porcentagem" value="0.02">2%
+                </label>
+        
+                <label for="porcentagem2">
+                    <input type="radio" id="porcentagem2" name="porcentagem" value="0.04">4%
+                </label>
+        
+                <label for="porcentagem3">
+                    <input type="radio" id="porcentagem3" name="porcentagem" value="0.06">6%
+                </label>
+        
+                <label for="porcentagem4">
+                    <input type="radio" id="porcentagem4" name="porcentagem" value="0.08">8%
+                </label>
+        
+                <label for="porcentagem5">
+                    <input type="radio" id="porcentagem5" name="porcentagem" value="0.1">10%
+                </label>
+            </div>
+        
+            <script src="/js/calculo.js"></script>
+        </form>
+        
+        <button onclick="calculoJuros(), calculoMulta(), total()">clique</button>
+        
+        <div class="tabela">
+            <table>
+                <tr>
+                    <th>Valor do Juros:</th>
+                    <td id="view1"><span>&nbsp;</span></td>
+                </tr>
+                
+                <tr>
+                    <th>Valor da Multa:</th>
+                    <td id="view2"><span>&nbsp;</span></td>
+                </tr>
+                
+                <tr>
+                    <th>Total:</th>
+                    <td id="view3"><span>&nbsp;</span></td>
+                </tr>
+            </table>
+        </div>
+        
+        <small>O cálculo é feito com juros de 1% ao mês e multa de no máximo 10%</small>
+
+        <footer>Calculadora de Juros e Multa &copy; 2024</footer>
+    </main>
+
+</body>
+</html>
