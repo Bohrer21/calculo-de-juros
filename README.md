@@ -1,7 +1,7 @@
 <h1 style="display: inline-block" align="center">Calculadora de Juros e Multa</h1>
 
  <p align="center">
-  Esse projeto está sendo desenvolvido para ajudar um familiar nas suas tarefas empresariais, estou compartilhando com vocês pois é algo simples, mas trabalhoso, envolve um pouco de lógica e com certeza pode ser melhorado de várias formas.
+  Esse projeto foi desenvolvido para ajudar uma pessoa nas suas tarefas diárias, vendo que era uma dificuldade e também muito trabalhoso, comecei a desenvolver o projeto para desenvolver minhas habilidades. Minha principal meta é tornar o projeto o mais fácil possível, para que qualquer usuário entre e termine rápido sua tarefa.
  </p>
 
 <summary><h2>
@@ -9,7 +9,7 @@
 </h2></summary>
 
 <p>
-  Esse programa tem a finalidade calcular juros de 1% ao mês a partir da primeira data de vencimento informada pelo usuário até o vencimento final também informado por ele, juntamente a isso também entra o valor da multa que será de no máximo 10%.
+  Esse programa tem a finalidade calcular juros de boletos vencidos de 1% ao mês a partir da data de vencimento do boleto informada pelo usuário até a data prevista pelo usuário, juntamente a isso também é cobrado uma multa com início de 2% no primeiro mês atrasado e nos próximos meses esse valor vai aumentando de 2 em 2%, mas essa porcentagem finaliza no quinto mês de atraso, sendo cobrado no máximo 10% de multa.
 </p>
 
 ## O que foi usado?
