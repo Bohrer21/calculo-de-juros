@@ -22,7 +22,7 @@ function calculoJuros() {
 
     let formatJuros = juros.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
 
-    view1.innerHTML = formatJuros
+    //view1.innerHTML = formatJuros
 
     return juros
 }
@@ -41,7 +41,7 @@ function calculoMulta() {
     let porcentMulta = getPorcentMulta(diffInDays);
     let multa = boleto * porcentMulta;
 
-    view2.innerHTML = multa.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
+    //view2.innerHTML = multa.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
 
     return multa
 }
@@ -53,7 +53,7 @@ function total(){
 
     let total = (juros + (multa + boleto))
 
-    view3.innerHTML = total.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
+    //view3.innerHTML = total.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
     
     return total
 }
@@ -68,4 +68,23 @@ function novoCalculo(){
     })
 
     localStorage.setItem(localStorageKey, JSON.stringify(values))
+    getCalculos()
+}
+
+function getCalculos(){
+
+    let values  = JSON.parse(localStorage.getItem(localStorageKey) || "[]")
+    let list = document.getElementById('resultado')
+    list.innerHTML = ''
+
+    for(let i = 0; i < values.length; i++){
+
+        let jurosFormatado = parseFloat(values[i]['valor1']).toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+        let multaFormatada = parseFloat(values[i]['valor2']).toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+        let totalFormatado = parseFloat(values[i]['valor3']).toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+        
+        list.innerHTML += `<li>${jurosFormatado}</li>`;
+        list.innerHTML += `<li>${multaFormatada}</li>`;
+        list.innerHTML += `<li>${totalFormatado}</li>`;
+    }
 }
