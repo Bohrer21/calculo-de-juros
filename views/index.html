@@ -17,12 +17,12 @@
             </div>
         
             <div class="forms" id="data">
-                <label for="start"><strong>Data do primeiro <br> vencimento</strong></label>
+                <label for="start"><strong>Data do<br> vencimento</strong></label>
                 <br>
                 <input type="date" id="start">
             </div>
             <div class="forms" id="data">
-                <label for="end"><strong>Data do último <br> vencimento</strong></label>
+                <label for="end"><strong>Data prevista<br> de vencimento</strong></label>
                 <br>
                 <input type="date" id="end">
             </div>
@@ -34,26 +34,17 @@
         
         <div class="tabela">
             <table>
-                <tr>
-                    <th>Valor do Juros:</th>
-                    <td id="view1"><span>&nbsp;</span></td>
-                </tr>
-                
-                <tr>
-                    <th>Valor da Multa:</th>
-                    <td id="view2"><span>&nbsp;</span></td>
-                </tr>
-                
-                <tr>
-                    <th>Total:</th>
-                    <td id="view3"><span>&nbsp;</span></td>
-                </tr>
-            </table>
-        </div>
+                <thead>
+                    <tr>
+                        <th>Data</th>
+                        <th>Valor do Juros</th>
+                        <th>Valor da Multa</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
 
-        
-        <div>
-            <ul id="resultado"></ul>
+                <tbody id="resultado"></tbody>
+            </table>
         </div>
         
         <small>O cálculo é feito com juros de 1% ao mês e multa de no máximo 10%</small>

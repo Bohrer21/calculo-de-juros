@@ -62,6 +62,7 @@ function novoCalculo(){
 
     let values  = JSON.parse(localStorage.getItem(localStorageKey) || "[]")
     values.push({
+        data: dataInicial.value,
         valor1: calculoJuros(),
         valor2: calculoMulta(),
         valor3: total()
@@ -83,8 +84,13 @@ function getCalculos(){
         let multaFormatada = parseFloat(values[i]['valor2']).toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
         let totalFormatado = parseFloat(values[i]['valor3']).toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
         
-        list.innerHTML += `<li>${jurosFormatado}</li>`;
-        list.innerHTML += `<li>${multaFormatada}</li>`;
-        list.innerHTML += `<li>${totalFormatado}</li>`;
+        let newRow = `<tr>
+                        <td>${values[i]['data']}
+                        <td>${jurosFormatado}</td>
+                        <td>${multaFormatada}</td>
+                        <td>${totalFormatado}</td>
+                      </tr>`;
+        list.innerHTML += newRow;
     }
+
 }
