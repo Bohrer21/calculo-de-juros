@@ -22,8 +22,6 @@ function calculoJuros() {
 
     let formatJuros = juros.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
 
-    //view1.innerHTML = formatJuros
-
     return juros
 }
 
@@ -41,7 +39,6 @@ function calculoMulta() {
     let porcentMulta = getPorcentMulta(diffInDays);
     let multa = boleto * porcentMulta;
 
-    //view2.innerHTML = multa.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
 
     return multa
 }
@@ -52,8 +49,6 @@ function total(){
     let multa = calculoMulta()
 
     let total = (juros + (multa + boleto))
-
-    //view3.innerHTML = total.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
     
     return total
 }
@@ -62,7 +57,7 @@ function novoCalculo(){
 
     let values  = JSON.parse(localStorage.getItem(localStorageKey) || "[]")
     values.push({
-        data: dataInicial.value,
+        data: dataInicial.value.split('-').reverse().join('/'),
         valor1: calculoJuros(),
         valor2: calculoMulta(),
         valor3: total()
@@ -79,18 +74,49 @@ function getCalculos(){
     list.innerHTML = ''
 
     for(let i = 0; i < values.length; i++){
-
+        
         let jurosFormatado = parseFloat(values[i]['valor1']).toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
         let multaFormatada = parseFloat(values[i]['valor2']).toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
         let totalFormatado = parseFloat(values[i]['valor3']).toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
         
         let newRow = `<tr>
-                        <td>${values[i]['data']}
+                        <td>${values[i]['data']}</td>
                         <td>${jurosFormatado}</td>
                         <td>${multaFormatada}</td>
                         <td>${totalFormatado}</td>
-                      </tr>`;
+                        <td><button id='btn-remove' onclick='excluirItem("${values[i]}")'><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16"><path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0"/></svg></button></td>
+                      </tr>`
+                      
         list.innerHTML += newRow;
+        verificarExclusaoTotal()
     }
 
 }
+
+function excluirItem(data){
+    let values = JSON.parse(localStorage.getItem(localStorageKey) || "[]")
+    let index = values.findIndex(x => x.valor1 == data)
+    values.splice(index,1)
+    localStorage.setItem(localStorageKey, JSON.stringify(values))
+    getCalculos()
+    verificarExclusaoTotal()
+}
+
+function verificarExclusaoTotal(){
+    let values = JSON.parse(localStorage.getItem(localStorageKey) || "[]")
+    let btn = document.getElementById('btnLimpar')
+
+    if(values.length > 0){
+        btn.style.display = "block"
+    } else{
+        btn.style.display = "none"
+    }
+}
+
+function exclusaoTotal(){
+    localStorage.removeItem(localStorageKey)
+    document.getElementById('resultado').innerHTML = ''
+    verificarExclusaoTotal()
+}
+
+getCalculos()
