@@ -104,7 +104,7 @@ function excluirItem(data){
 
 function verificarExclusaoTotal(){
     let values = JSON.parse(localStorage.getItem(localStorageKey) || "[]")
-    let btn = document.getElementById('btnLimpar')
+    let btn = document.getElementById('btn-Limpar')
 
     if(values.length > 0){
         btn.style.display = "block"
