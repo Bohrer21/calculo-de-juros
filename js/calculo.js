@@ -20,25 +20,46 @@ function calculoJuros() {
 
     let juros = (((boleto * 0.01) / 30) * diffInDays)
 
-    let formatJuros = juros.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
-
     return juros
 }
 
+/*function calculoMulta() {
+    const boleto = Number(valorBoleto.value);
+    const dataVenc = new Date(dataInicial.value);
+    const dataPagto = new Date(dataFinal.value);
 
-function getPorcentMulta(daysLate) {
-    let mesesAtrasados = Math.floor(daysLate / 30);
-    let porcentagem = Math.min((mesesAtrasados + 1) * 0.02, 0.10);
-    return porcentagem;
-}
+    let multaPercentual = 0;
+
+    if(dataPagto > dataVenc){
+        multaPercentual += 0.02;
+
+        let proximoMes = new Date(dataVenc);
+        proximoMes.setMonth(proximoMes.getMonth() + 1);
+        proximoMes.setDate(1);
+
+        let mesesAdicionais = 0;
+        while (proximoMes <= dataPagto) {
+            mesesAdicionais++;
+            proximoMes.setMonth(proximoMes.getMonth() + 1);
+        }
+
+        multaPercentual += mesesAdicionais * 0.02;
+
+        if (multaPercentual > 0.10) {
+            multaPercentual = 0.10;
+        }
+    }
+
+    const multa = boleto * multaPercentual;
+
+    return multa;
+}*/
 
 function calculoMulta() {
-    let boleto = Number(valorBoleto.value)
-    let diffInDays = calculateDateDiff();
+    var porcentMulta = document.querySelector("input[name='porcentagem']:checked").value;
+    var boleto = Number(valorBoleto.value)
 
-    let porcentMulta = getPorcentMulta(diffInDays);
-    let multa = boleto * porcentMulta;
-
+    var multa = boleto * porcentMulta
 
     return multa
 }
