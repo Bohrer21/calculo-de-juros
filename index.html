@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
     <title>Calculo de Juros e multa</title>
 
 </head>
@@ -17,16 +17,15 @@
             </div>
         
             <div class="forms" id="data">
-                <label for="start"><strong>Data do primeiro <br> vencimento</strong></label>
+                <label for="start"><strong>Data do<br> vencimento</strong></label>
                 <br>
                 <input type="date" id="start">
             </div>
             <div class="forms" id="data">
-                <label for="end"><strong>Data do último <br> vencimento</strong></label>
+                <label for="end"><strong>Data prevista<br> de vencimento</strong></label>
                 <br>
                 <input type="date" id="end">
             </div>
-        
             <h3>Selecione a porcentagem da multa</h3>
         
             <div class="forms">
@@ -50,30 +49,29 @@
                     <input type="radio" id="porcentagem5" name="porcentagem" value="0.1">10%
                 </label>
             </div>
-        
-            <script src="js/calculo.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/date-fns@2.30.0/dist/date-fns.min.js"></script>
+            <script src="/js/calculo.js"></script>
         </form>
         
-        <button onclick="calculoJuros(), calculoMulta(), total()">clique</button>
+        <button onclick="calculoJuros(), calculoMulta(), total(), novoCalculo()">clique</button>
         
         <div class="tabela">
             <table>
-                <tr>
-                    <th>Valor do Juros:</th>
-                    <td id="view1"><span>R$ 0,00</span></td>
-                </tr>
-                
-                <tr>
-                    <th>Valor da Multa:</th>
-                    <td id="view2"><span>R$ 0,00</span></td>
-                </tr>
-                
-                <tr>
-                    <th>Total:</th>
-                    <td id="view3"><span>R$ 0,00</span></td>
-                </tr>
+                <thead>
+                    <tr>
+                        <th>Data</th>
+                        <th>Valor do Juros</th>
+                        <th>Valor da Multa</th>
+                        <th>Total</th>
+                        <th>Excluir</th>
+                    </tr>
+                </thead>
+
+                <tbody id="resultado"></tbody>
             </table>
         </div>
+
+        <button id="btnLimpar" style="display: none;" onclick="exclusaoTotal()">Limpar tudo</button>
         
         <small>O cálculo é feito com juros de 1% ao mês e multa de no máximo 10%</small>
 
